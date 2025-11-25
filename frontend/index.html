@@ -13,7 +13,7 @@
   <div class="container">
     <!-- Header -->
     <header>
-      <h1>🎬 Video Captioner</h1>
+      <h1>Video Captioner</h1>
       <p class="subtitle">Upload your video, generate AI captions, and render them beautifully</p>
     </header>
 
@@ -25,7 +25,7 @@
       </div>
 
       <div class="upload-area" id="uploadArea">
-        <div class="upload-icon">📹</div>
+        <div class="upload-icon"></div>
         <label for="videoInput" class="file-label">
           Click to browse or drag & drop your video
         </label>
@@ -35,7 +35,6 @@
 
       <div class="btn-group">
         <button class="btn btn-primary" id="uploadBtn" disabled>
-          <span>⬆️</span>
           <span>Upload Video</span>
         </button>
       </div>
@@ -60,24 +59,23 @@
         Transcription Language
       </label>
       <select id="languageSelect">
-        <option value="">🌐 Auto-Detect (Recommended)</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="hi">🇮🇳 Hindi</option>
-        <option value="es">🇪🇸 Spanish</option>
-        <option value="fr">🇫🇷 French</option>
-        <option value="de">🇩🇪 German</option>
-        <option value="it">🇮🇹 Italian</option>
-        <option value="pt">🇵🇹 Portuguese</option>
-        <option value="ja">🇯🇵 Japanese</option>
-        <option value="ko">🇰🇷 Korean</option>
-        <option value="zh">🇨🇳 Chinese</option>
-        <option value="ar">🇸🇦 Arabic</option>
-        <option value="ru">🇷🇺 Russian</option>
+        <option value="">Auto-Detect (Recommended)</option>
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="it">Italian</option>
+        <option value="pt">Portuguese</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="zh">Chinese</option>
+        <option value="ar">Arabic</option>
+        <option value="ru">Russian</option>
       </select>
 
       <div class="btn-group">
         <button class="btn btn-secondary" id="captionBtn" disabled>
-          <span>✨</span>
           <span>Auto-Generate Captions</span>
         </button>
       </div>
@@ -103,14 +101,13 @@
         Caption Style
       </label>
       <select id="styleSelect">
-        <option value="bottom">🎯 Bottom Centered (Classic)</option>
-        <option value="top">⬆️ Top Bar (News Style)</option>
-        <option value="karaoke">🎤 Karaoke Style (Highlighted)</option>
+        <option value="bottom">Bottom Centered (Classic)</option>
+        <option value="top">Top Bar (News Style)</option>
+        <option value="karaoke">Karaoke Style (Highlighted)</option>
       </select>
 
       <div class="btn-group">
         <button class="btn btn-success" id="renderBtn" disabled>
-          <span>🎨</span>
           <span>Render Video</span>
         </button>
       </div>
@@ -134,11 +131,9 @@
 
       <div class="btn-group mt-2">
         <button class="btn btn-primary" id="downloadBtn">
-          <span>⬇️</span>
           <span>Download Video</span>
         </button>
         <button class="btn btn-secondary" id="newVideoBtn">
-          <span>🔄</span>
           <span>Process Another Video</span>
         </button>
       </div>
