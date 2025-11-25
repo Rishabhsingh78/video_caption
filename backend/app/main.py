@@ -92,7 +92,7 @@ async def download_output(output_filename: str):
         print(f" File not found: {out_path}")
         return {"error": "file not found"}
     
-    print(f"✅ Serving file: {out_path}")
+    print(f" Serving file: {out_path}")
     # Let FileResponse handle the Content-Disposition header automatically
     # This avoids UnicodeEncodeError for filenames with special characters
     return FileResponse(

@@ -20,10 +20,10 @@ try:
     # Upgrade to 'small' model for better accuracy with Hindi/mixed languages
     # base (~139MB) -> small (~461MB)
     model = whisper.load_model("small")
-    print("✅ Whisper model loaded successfully! (Model: small)")
+    print(" Whisper model loaded successfully! (Model: small)")
 except Exception as e:
     error_message = f"Whisper model failed to load: {str(e)}"
-    print(f"❌ ERROR: {error_message}")
+    print(f" ERROR: {error_message}")
 
 def transcribe_local(path: str, language: Optional[str] = None) -> List[Dict]:
     """
@@ -75,12 +75,12 @@ def transcribe_local(path: str, language: Optional[str] = None) -> List[Dict]:
             "text": seg['text'].strip()
         })
     
-    print(f"✅ Transcription complete: {len(segments)} segments")
+    print(f" Transcription complete: {len(segments)} segments")
     
     # Post-processing: Merge short segments for better pacing
-    print("🔄 Optimizing segments for better readability...")
+    print(" Optimizing segments for better readability...")
     optimized_segments = merge_segments(segments)
-    print(f"✅ Optimization complete: {len(segments)} -> {len(optimized_segments)} segments")
+    print(f" Optimization complete: {len(segments)} -> {len(optimized_segments)} segments")
     
     return optimized_segments
 

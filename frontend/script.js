@@ -133,14 +133,14 @@ uploadBtn.addEventListener("click", async () => {
 
     uploadedFilename = data.video_filename;
     completeProgress(uploadProgress);
-    showStatus(uploadStatus, `✅ Upload successful! Ready to generate captions.`, "success");
+    showStatus(uploadStatus, ` Upload successful! Ready to generate captions.`, "success");
 
     // Enable next step
     captionBtn.disabled = false;
 
   } catch (error) {
     hideProgress(uploadProgress);
-    showStatus(uploadStatus, `❌ Upload failed: ${error.message}`, "error");
+    showStatus(uploadStatus, ` Upload failed: ${error.message}`, "error");
     uploadBtn.disabled = false;
   }
 });
@@ -178,7 +178,7 @@ captionBtn.addEventListener("click", async () => {
     }
 
     completeProgress(captionProgress);
-    showStatus(captionStatus, `✅ Generated ${data.captions.length} caption segments!`, "success");
+    showStatus(captionStatus, ` Generated ${data.captions.length} caption segments!`, "success");
 
     // Display captions
     captionsBox.textContent = JSON.stringify(data.captions, null, 2);
@@ -189,7 +189,7 @@ captionBtn.addEventListener("click", async () => {
 
   } catch (error) {
     hideProgress(captionProgress);
-    showStatus(captionStatus, `❌ Caption generation failed: ${error.message}`, "error");
+    showStatus(captionStatus, ` Caption generation failed: ${error.message}`, "error");
     captionBtn.disabled = false;
   }
 });
@@ -226,7 +226,7 @@ renderBtn.addEventListener("click", async () => {
     const outputUrl = `${API_BASE}${data.output_path}`;
 
     completeProgress(renderProgress);
-    showStatus(renderStatus, `✅ Video rendered successfully!`, "success");
+    showStatus(renderStatus, ` Video rendered successfully!`, "success");
 
     // Show preview section
     previewSection.style.display = "block";
@@ -238,7 +238,7 @@ renderBtn.addEventListener("click", async () => {
 
   } catch (error) {
     hideProgress(renderProgress);
-    showStatus(renderStatus, `❌ Rendering failed: ${error.message}`, "error");
+    showStatus(renderStatus, ` Rendering failed: ${error.message}`, "error");
     renderBtn.disabled = false;
   }
 });

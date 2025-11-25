@@ -4,12 +4,11 @@ A full-stack web application that allows users to upload MP4 videos, automatical
 
 ## Features
 
-- 🎬 **Video Upload**: Drag & drop or browse to upload MP4 files
-- ✨ **AI Caption Generation**: Automatic transcription using OpenAI Whisper
-- 🎨 **Multiple Caption Styles**: Bottom, Top, and Karaoke styles
-- 📹 **Video Rendering**: Burn captions directly into video
-- 💫 **Modern UI**: Premium dark theme with glassmorphism effects
-- 📱 **Responsive Design**: Works on desktop, tablet, and mobile
+-  **Video Upload**: Drag & drop or browse to upload MP4 files
+-  **AI Caption Generation**: Automatic transcription using OpenAI Whisper
+-  **Multiple Caption Styles**: Bottom, Top, and Karaoke styles
+-  **Video Rendering**: Burn captions directly into video
+-  **Responsive Design**: Works on desktop, tablet, and mobile
 
 ## Tech Stack
 
@@ -33,11 +32,6 @@ A full-stack web application that allows users to upload MP4 videos, automatical
 - pkg-config
 
 ### Installation
-
-1. **Install system dependencies** (macOS):
-   ```bash
-   brew install ffmpeg pkg-config
-   ```
 
 2. **Set up backend**:
    ```bash
@@ -78,27 +72,6 @@ A full-stack web application that allows users to upload MP4 videos, automatical
 - `POST /render` - Render video with captions
 - `GET /download/{filename}` - Download rendered video
 
-## Project Structure
-
-```
-video_caption/
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── main.py              # FastAPI app & endpoints
-│   │   ├── whisper_service.py   # AI transcription
-│   │   ├── renderer.py          # Video rendering
-│   │   ├── srt_converter.py     # SRT format converter
-│   │   ├── static/              # Uploaded & rendered videos
-│   │   └── fonts/               # Custom fonts for captions
-│   ├── requirements.txt
-│   └── .venv/
-└── frontend/
-    ├── index.html               # Main UI
-    ├── style.css                # Premium styling
-    └── script.js                # Frontend logic
-```
-
 ## Configuration
 
 **Backend Port**: Default is `8002` (change in `backend/app/main.py`)  
@@ -110,6 +83,4 @@ video_caption/
 - Rendering can take several minutes depending on video length
 - Supports Devanagari and other Unicode scripts in captions
 
-## License
 
-MIT
