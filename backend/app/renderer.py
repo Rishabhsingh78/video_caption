@@ -62,15 +62,22 @@ def render_with_style(input_video_path, srt_path, output_path, style="bottom", f
                 if "/" in font and not os.path.exists(font):
                     continue
                     
+                # Calculate max width for wrapping (90% of video width)
+                # Ensure width is even for better compatibility
+                max_width = int(w * 0.9)
+                if max_width % 2 != 0:
+                    max_width -= 1
+
                 txt_clip = TextClip(
                     txt, 
                     font=font, 
-                    fontsize=52,  # Larger for better readability
+                    fontsize=45,  # Slightly smaller to fit better
                     color='white', 
                     stroke_color='black', 
-                    stroke_width=2.5,  # Thicker stroke for better contrast
-                    method='label',
-                    kerning=0  # Adjust letter spacing if needed
+                    stroke_width=2.0,
+                    method='caption',  # Use 'caption' for wrapping
+                    size=(max_width, None),  # Constrain width, let height expand
+                    align='center'
                 )
                 print(f"    Using font: {font}")
                 return txt_clip
@@ -99,16 +106,17 @@ def render_with_style(input_video_path, srt_path, output_path, style="bottom", f
 
     # Style presets: position the subtitles clip accordingly
     if style == "bottom":
-        subs = subs.set_position(("center", h - 100))
+        # Move up to account for multi-line wrapping (was h - 100)
+        subs = subs.set_position(("center", h - 200))
     elif style == "top":
-        subs = subs.set_position(("center", 20))
+        subs = subs.set_position(("center", 50))
     elif style == "karaoke":
         # For karaoke-like effect: create plain subtitles then overlay a translucent highlight clip.
         # MoviePy does not support word-level time by default from SRT, so we animate an expanding mask over each subtitle.
         # Simplest approach: render subtitles at center and use a semi-transparent bar behind text.
-        subs = subs.set_position(("center", h - 150))
+        subs = subs.set_position(("center", h - 250))
     else:
-        subs = subs.set_position(("center", h - 100))
+        subs = subs.set_position(("center", h - 200))
 
     print("   Compositing video with subtitles...")
     final = CompositeVideoClip([video, subs.set_duration(video.duration)])
