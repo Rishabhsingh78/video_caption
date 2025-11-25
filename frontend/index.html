@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Upload videos and automatically generate beautiful captions with AI">
+  <title>Video Captioner - AI-Powered Caption Generation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>🎬 Video Captioner</h1>
+      <p class="subtitle">Upload your video, generate AI captions, and render them beautifully</p>
+    </header>
+
+    <!-- Step 1: Upload Video -->
+    <section class="card">
+      <div class="card-header">
+        <div class="step-number">1</div>
+        <h2>Upload Your Video</h2>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">📹</div>
+        <label for="videoInput" class="file-label">
+          Click to browse or drag & drop your video
+        </label>
+        <p class="file-hint">Supports MP4 files up to 500MB</p>
+        <input type="file" id="videoInput" accept="video/mp4">
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" id="uploadBtn" disabled>
+          <span>⬆️</span>
+          <span>Upload Video</span>
+        </button>
+      </div>
+
+      <div id="uploadStatus" class="status"></div>
+      <div id="uploadProgress" class="progress-bar">
+        <div class="progress-fill" style="width: 0%"></div>
+      </div>
+    </section>
+
+    <!-- Step 2: Generate Captions -->
+    <section class="card">
+      <div class="card-header">
+        <div class="step-number">2</div>
+        <h2>Generate Captions</h2>
+      </div>
+
+      <p class="text-secondary mb-2">Use AI to automatically transcribe your video's audio into captions</p>
+
+      <label for="languageSelect"
+        style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">
+        Transcription Language
+      </label>
+      <select id="languageSelect">
+        <option value="">🌐 Auto-Detect (Recommended)</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="hi">🇮🇳 Hindi</option>
+        <option value="es">🇪🇸 Spanish</option>
+        <option value="fr">🇫🇷 French</option>
+        <option value="de">🇩🇪 German</option>
+        <option value="it">🇮🇹 Italian</option>
+        <option value="pt">🇵🇹 Portuguese</option>
+        <option value="ja">🇯🇵 Japanese</option>
+        <option value="ko">🇰🇷 Korean</option>
+        <option value="zh">🇨🇳 Chinese</option>
+        <option value="ar">🇸🇦 Arabic</option>
+        <option value="ru">🇷🇺 Russian</option>
+      </select>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="captionBtn" disabled>
+          <span>✨</span>
+          <span>Auto-Generate Captions</span>
+        </button>
+      </div>
+
+      <div id="captionStatus" class="status"></div>
+      <div id="captionProgress" class="progress-bar">
+        <div class="progress-fill" style="width: 0%"></div>
+      </div>
+      <pre id="captionsBox" class="captions-box"></pre>
+    </section>
+
+    <!-- Step 3: Choose Style & Render -->
+    <section class="card">
+      <div class="card-header">
+        <div class="step-number">3</div>
+        <h2>Render with Style</h2>
+      </div>
+
+      <p class="text-secondary mb-2">Choose a caption style and render your final video</p>
+
+      <label for="styleSelect"
+        style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-weight: 500;">
+        Caption Style
+      </label>
+      <select id="styleSelect">
+        <option value="bottom">🎯 Bottom Centered (Classic)</option>
+        <option value="top">⬆️ Top Bar (News Style)</option>
+        <option value="karaoke">🎤 Karaoke Style (Highlighted)</option>
+      </select>
+
+      <div class="btn-group">
+        <button class="btn btn-success" id="renderBtn" disabled>
+          <span>🎨</span>
+          <span>Render Video</span>
+        </button>
+      </div>
+
+      <div id="renderStatus" class="status"></div>
+      <div id="renderProgress" class="progress-bar">
+        <div class="progress-fill" style="width: 0%"></div>
+      </div>
+    </section>
+
+    <!-- Step 4: Preview & Download -->
+    <section class="card" id="previewSection" style="display: none;">
+      <div class="card-header">
+        <div class="step-number">4</div>
+        <h2>Preview & Download</h2>
+      </div>
+
+      <div class="video-preview show">
+        <video id="previewVideo" controls></video>
+      </div>
+
+      <div class="btn-group mt-2">
+        <button class="btn btn-primary" id="downloadBtn">
+          <span>⬇️</span>
+          <span>Download Video</span>
+        </button>
+        <button class="btn btn-secondary" id="newVideoBtn">
+          <span>🔄</span>
+          <span>Process Another Video</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
