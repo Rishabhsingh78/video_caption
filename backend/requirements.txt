@@ -1,11 +1,7 @@
-
-
 fastapi
 uvicorn
 moviepy
-openai
-numpy
-pydantic
-pydantic-settings
 python-multipart
-srt
+pydantic
+ffmpeg-python
+openai-whisper
