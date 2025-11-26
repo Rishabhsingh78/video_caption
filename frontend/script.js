@@ -278,5 +278,5 @@ newVideoBtn.addEventListener("click", () => {
 });
 
 // Initialize
-console.log("🎬 Video Captioner initialized!");
+console.log("Video Captioner initialized!");
 console.log("API Base:", API_BASE);
